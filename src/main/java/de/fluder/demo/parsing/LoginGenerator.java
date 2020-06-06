@@ -1,5 +1,7 @@
 package de.fluder.demo.parsing;
 
+import de.fluder.demo.enteties.Email;
+import de.fluder.demo.utils.EmailGenerator;
 import de.fluder.demo.utils.ValueGenerator;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -7,6 +9,7 @@ import org.jsoup.Jsoup;
 
 public class LoginGenerator {
     private void getMain() {
+        Email email = EmailGenerator.emailAddress();
         Connection connect = Jsoup.connect("https://azbyka.ru/znakomstva/signup-new")
 //                .data("first_name", ValueGenerator.getGenerateNameRu())
 //                .data("email", ValueGenerator.getGenerateNameRu())

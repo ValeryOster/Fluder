@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class ValueGenerator {
 
-    public static String getGenerateNameRu(String alphabet) {
+    public static String getGenerateName(String alphabet) {
         Random r = new Random();
         int min = 3 + r.nextInt(8);
         String name = "";

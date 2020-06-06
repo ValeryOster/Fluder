@@ -1,0 +1,2 @@
+https://www.guerrillamail.com/ajax.php?f=get_email_list&offset=0&site=guerrillamail.com&in=halo&_=1591368644972
+https://www.guerrillamail.com/ajax.php?f=check_email&seq=0&site=guerrillamail.com&in=halo&_=1591368644973
