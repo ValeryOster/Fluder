@@ -1,8 +1,11 @@
-package de.fluder.demo.enteties;
+package de.fluder.demo.entity;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Setter
 @Getter
@@ -14,5 +17,8 @@ public class Email {
     private String sid_token;
     private String site;
     private String emailGenerateName;
+
+    @SerializedName("list")
+    private List<Message> messages;
 
 }

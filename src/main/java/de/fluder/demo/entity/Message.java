@@ -1,4 +1,4 @@
-package de.fluder.demo.enteties;
+package de.fluder.demo.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

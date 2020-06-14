@@ -1,4 +1,4 @@
-package de.fluder.demo.enteties;
+package de.fluder.demo.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,12 +11,12 @@ import javax.persistence.Id;
 
 @Entity
 @Getter @Setter @NoArgsConstructor
-public class TelefonNummer {
+public class Proxy {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private String nummer;
+    private String ip;
+    private String port;
 
 }

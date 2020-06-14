@@ -1,19 +1,16 @@
 package de.fluder.demo.utils;
 
 import com.google.gson.Gson;
-import de.fluder.demo.enteties.Email;
-import de.fluder.demo.enteties.Message;
+import de.fluder.demo.entity.Email;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class EmailGenerator {
 
     public static Email emailAddress() {
-        String generateName = ValueGenerator.getGenerateName(Alphabet.LAT.getLang());
+        String generateName = ValueGenerator.getGenerateString(Alphabet.LAT);
         String body = null;
         try {
             body = Jsoup.connect("http://guerrillamail.com/ajax.php?f=set_email_user")
@@ -31,9 +28,8 @@ public class EmailGenerator {
         return email;
     }
 
-    public static List<Message> getEmails(Email email) {
+    public static Email getEmails(Email email) {
         String body = null;
-        List<Message> emails = new ArrayList<>();
         try {
             body = Jsoup
                     .connect("https://www.guerrillamail.com/ajax.php?f=check_email&seq=0&site=guerrillamail.com&in="
@@ -46,8 +42,8 @@ public class EmailGenerator {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return emails;
+        email = new Gson().fromJson(body, Email.class);
+        return email;
     }
 }
 
