@@ -15,6 +15,7 @@ public class Account {
 
     private String firstName;
     private String email;
+    private String emailNick;
     private String password;
     private String birthDay;
     private String birthMonth;

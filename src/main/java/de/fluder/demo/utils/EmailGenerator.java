@@ -24,7 +24,6 @@ public class EmailGenerator {
         Gson gson = new Gson();
         Email email = gson.fromJson(body, Email.class);
         email.setEmailGenerateName(generateName);
-
         return email;
     }
 
