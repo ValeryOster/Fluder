@@ -1,14 +1,14 @@
 package de.fluder.demo.utils;
 
 import de.fluder.demo.entity.Account;
-import de.fluder.demo.entity.Email;
+import de.fluder.demo.entity.GrrEmail;
 
 import java.util.GregorianCalendar;
 import java.util.Random;
 
 public class AccountGenerater {
 
-    public static Account getNewAccount(Email email) {
+    public static Account getNewAccount(GrrEmail email) {
         GregorianCalendar gc = getGenerateBirthday();
         Account account = new Account();
         account.setBirthDay(Integer.toString(gc.get(gc.DAY_OF_MONTH)));

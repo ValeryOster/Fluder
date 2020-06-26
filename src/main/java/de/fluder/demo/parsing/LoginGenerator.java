@@ -1,18 +1,16 @@
 package de.fluder.demo.parsing;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import de.fluder.demo.entity.Account;
-import de.fluder.demo.entity.Email;
+import de.fluder.demo.entity.GrrEmail;
 import de.fluder.demo.repositories.TelefonNummerRepo;
 import de.fluder.demo.utils.AccountGenerater;
-import de.fluder.demo.utils.EmailGenerator;
+import de.fluder.demo.utils.GrrEmailGenerator;
 import de.fluder.demo.utils.Utils;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
-import java.util.Map;
 import java.util.Random;
 
 
@@ -22,7 +20,7 @@ public class LoginGenerator {
     private TelefonNummerRepo nummerRepo;
 
     public void getMain() throws IOException {
-        Email email = EmailGenerator.emailAddress();
+        GrrEmail email = GrrEmailGenerator.emailGrrAddress();
         Account newAccount = AccountGenerater.getNewAccount(email);
         Connection.Response execute = Jsoup.connect(singNewUrl)
                 .data("first_name", newAccount.getFirstName())

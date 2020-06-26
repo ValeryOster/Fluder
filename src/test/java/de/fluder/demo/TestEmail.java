@@ -1,7 +1,7 @@
 package de.fluder.demo;
 
 import com.google.gson.Gson;
-import de.fluder.demo.entity.Email;
+import de.fluder.demo.entity.GrrEmail;
 import de.fluder.demo.utils.Alphabet;
 import de.fluder.demo.utils.ValueGenerator;
 import org.jsoup.Connection;
@@ -41,14 +41,14 @@ public class TestEmail {
         generateNames.forEach(System.out::println);
     }
 
-    public Email testEmailGeneration() throws IOException {
+    public GrrEmail testEmailGeneration() throws IOException {
         String generateName = ValueGenerator.getGenerateString(Alphabet.LAT);
         String body = Jsoup.connect("http://guerrillamail.com/ajax.php?f=set_email_user")
                 .data("email_user", generateName)
                 .data("lang", "ru")
                 .data("site", "guerrillamail.com").method(Connection.Method.POST).ignoreContentType(true).execute().body();
         System.out.println(body);
-        Email email = this.gson.fromJson(body, Email.class);
+        GrrEmail email = this.gson.fromJson(body, GrrEmail.class);
         System.out.println(email.getEmail_addr());
         email.setEmailGenerateName(generateName);
         return email;
@@ -57,13 +57,13 @@ public class TestEmail {
 
     @Test
     public void testEmailList() throws IOException, InterruptedException {
-        Email email = testEmailGeneration();
+        GrrEmail email = testEmailGeneration();
         Thread.sleep(3000);
         String url = firstCheck +=email.getSid_token();
         System.out.println(url);
         String jsonFromServer = getJsonFromServer(url);
 
-        email = this.gson.fromJson(jsonFromServer, Email.class);
+        email = this.gson.fromJson(jsonFromServer, GrrEmail.class);
 
         System.out.println(email.getMessages().get(0).getMail_body());
 

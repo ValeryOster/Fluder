@@ -6,7 +6,6 @@ import java.io.IOException;
 
 class LoginGeneratorTest {
 
-
     @Test
     public void testGenarator() throws IOException {
         LoginGenerator loginGenerator = new LoginGenerator();

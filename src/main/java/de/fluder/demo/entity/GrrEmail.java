@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 @Getter
 @NoArgsConstructor
-public class Email {
+public class GrrEmail {
     private String alias;
     private String email_addr;
     private String email_timestamp;
